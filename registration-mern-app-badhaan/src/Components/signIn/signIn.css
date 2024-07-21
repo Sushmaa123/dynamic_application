@@ -1,0 +1,11 @@
+.forget-password{
+    text-align: "right";
+    color: red;
+    cursor: pointer;
+
+}
+.signin-link{
+    color: blue;
+    border-bottom: 1px solid blue;
+    cursor: pointer;
+}

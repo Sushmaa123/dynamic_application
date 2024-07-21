@@ -1,0 +1,75 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    align-items: flex-start;
+    border: 1px solid red;
+    border-radius: 10px;
+    width: fit-content;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+.card h2{
+    text-align: center;
+    margin-bottom: 25px;
+   font-style: italic;
+}
+.card label{
+    margin-right: 15px;
+    font-weight: 800;
+    color:red;
+    margin-bottom:25px;
+    font-style: italic;
+}
+.card span{
+    color:blue;
+    margin-bottom: 25px;
+}
+.form-container{
+    display: flex;
+    width: fit-content;  
+    flex-direction: column;
+    row-gap: 25px;
+    padding: 30px;
+    margin-left: 100px;
+    margin-top: 30px;
+    border: 1px solid blue;
+
+};
+.form-container h1{
+    margin-bottom: 25px;
+    font-style: italic;
+}
+.form-container .update-btn{
+    width:100px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+.update-btn-toggle{
+    margin-left: 25px;
+    width: 150px;
+    height:30px ;
+    background-color: green;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+.logout-btn{
+    width:100px;
+    height: 30px;
+    background-color: red;
+    margin-left: 25px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
