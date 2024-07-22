@@ -2,7 +2,7 @@ import "./changePassForm.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { getPublicIP } from "../utils/getPublicIP";
 
 const ForgetPasswordForm=()=>{
     const navigate = useNavigate();
@@ -13,9 +13,19 @@ const ForgetPasswordForm=()=>{
     });
     const [formError,setFormError]=useState({});
     const [click,setClick]=useState(false);
+    const [publicIP, setPublicIP] = useState("");
+
+    useEffect(() => {
+        const fetchPublicIP = async () => {
+            const ip = await getPublicIP();
+            setPublicIP(ip);
+        };
+        fetchPublicIP();
+    }, []);
+
     function postdata(data){
         try{
-            axios.post("http://44.203.152.238:5000/api/user/updatePassword",data).then((res)=>{
+            axios.post("http://${publicIP}:5000/api/user/updatePassword",data).then((res)=>{
               console.log(res);
               window.alert(res.data.message)
               navigate("/")

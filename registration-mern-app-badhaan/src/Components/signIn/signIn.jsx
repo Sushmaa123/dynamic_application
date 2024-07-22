@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./signIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getPublicIP } from "../utils/getPublicIP";
 
 const SignIn=()=>{
     const navigate = useNavigate();
@@ -11,9 +12,19 @@ const SignIn=()=>{
     });
     const [formError,setFormError]=useState({});
     const [login,setlogin]=useState(false);
+    const [publicIP, setPublicIP] = useState("");
+
+    useEffect(() => {
+        const fetchPublicIP = async () => {
+            const ip = await getPublicIP();
+            setPublicIP(ip);
+        };
+        fetchPublicIP();
+    }, []);
+
     function postSignInData(data){
         try{
-          axios.post("http://44.203.152.238:5000/api/user/login",data).then((res)=>{
+          axios.post("http://${publicIP}:5000/api/user/login",data).then((res)=>{
             const myToken = res.data.token;
             localStorage.setItem("token", myToken);
             window.alert(res.data.Status);

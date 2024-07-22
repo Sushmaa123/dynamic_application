@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./updateForm.css";
 import { useNavigate } from "react-router-dom";
+import { getPublicIP } from "../utils/getPublicIP";
+
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -14,6 +16,17 @@ const Profile = () => {
   const [formError, setFormError] = useState({});
   const [click, setClick] = useState(false);
   const [updateClick,setUpdateClick]=useState(false);
+
+  const [publicIP, setPublicIP] = useState("");
+
+  useEffect(() => {
+    const fetchPublicIP = async () => {
+        const ip = await getPublicIP();
+        setPublicIP(ip);
+    };
+    fetchPublicIP();
+}, []);
+
   const config = {
     headers: {
       token: localStorage.getItem("token"),
@@ -23,7 +36,7 @@ const Profile = () => {
 
   useEffect( () => {
   axios
-      .get("http://44.203.152.238:5000/api/user", config)
+      .get("http://${publicIP}:5000/api/user", config)
       .then((res) => {
         console.log(res.data.data);
         setProfile(res.data.data);
@@ -41,7 +54,7 @@ useEffect( ()=>{
 if(Object.keys(formError).length==0 && updateClick ){
     console.log(updateDetails);
    axios
-    .post("http://44.203.152.238:5000/api/user/update",updateDetails,config)
+    .post("http://${publicIP}:5000/api/user/update",updateDetails,config)
     .then((res) => {
      console.log(res);
      window.alert(res.data.message);

@@ -2,6 +2,8 @@ import "./signUp.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getPublicIP } from "../utils/getPublicIP";
+
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -12,9 +14,20 @@ const SignUp = () => {
     name:"",
     place:""
 });
+
+  const [publicIP, setPublicIP] = useState("");
+
+  useEffect(() => {
+    const fetchPublicIP = async () => {
+      const ip = await getPublicIP();
+      setPublicIP(ip);
+    };
+    fetchPublicIP();
+  }, []);
+
 function postSignUpData(data){
   try{
-    axios.post("http://44.203.152.238:5000/api/user/register",data).then((res)=>{
+    axios.post("http://${publicIP}:5000/api/user/register",data).then((res)=>{
       // console.log(res);
       window.alert(res.data.message);
       navigate("/")
