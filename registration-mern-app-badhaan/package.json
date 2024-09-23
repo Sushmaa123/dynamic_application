@@ -14,6 +14,9 @@
     "registration-app": "file:",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  },
   "scripts": {
     "start": "env-cmd -f .env react-scripts start",
     "build": "env-cmd -f .env react-scripts build",
