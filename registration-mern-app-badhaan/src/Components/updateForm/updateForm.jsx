@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./updateForm.css";
 import { useNavigate } from "react-router-dom";
-
+import React from "react";
 const Profile = () => {
     const navigate = useNavigate();
   const [profile, setProfile] = useState({});

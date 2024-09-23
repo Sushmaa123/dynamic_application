@@ -1,8 +1,8 @@
 import "./signUp.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"; 
+import React from "react";
 const SignUp = () => {
   const navigate = useNavigate();
   const [details,setDetails]=useState({
