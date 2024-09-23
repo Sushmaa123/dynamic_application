@@ -1,0 +1,1 @@
+export const API_ENDPOINT = 'http://your-public-ip-address:5000';

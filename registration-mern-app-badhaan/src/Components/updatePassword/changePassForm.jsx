@@ -2,7 +2,7 @@ import "./changePassForm.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { API_ENDPOINT } from "../../config";
 
 const ForgetPasswordForm=()=>{
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const ForgetPasswordForm=()=>{
     const [click,setClick]=useState(false);
     function postdata(data){
         try{
-            axios.post("http://localhost:5000/api/user/updatePassword",data).then((res)=>{
+            axios.post("${API_ENDPOINT}/api/user/updatePassword",data).then((res)=>{
               console.log(res);
               window.alert(res.data.message)
               navigate("/")

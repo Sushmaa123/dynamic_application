@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./signIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINT } from "../../config";
 
 const SignIn=()=>{
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ const SignIn=()=>{
     const [login,setlogin]=useState(false);
     function postSignInData(data){
         try{
-          axios.post("http://localhost:5000/api/user/login",data).then((res)=>{
+          axios.post("${API_ENDPOINT}/api/user/login",data).then((res)=>{
             const myToken = res.data.token;
             localStorage.setItem("token", myToken);
             window.alert(res.data.Status);
