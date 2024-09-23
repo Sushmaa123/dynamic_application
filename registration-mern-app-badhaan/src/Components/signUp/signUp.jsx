@@ -14,7 +14,7 @@ const SignUp = () => {
 });
 function postSignUpData(data){
   try{
-    axios.post("${process.env.API_ENDPOINT}/api/user/register",data).then((res)=>{
+    axios.post(`${process.env.REACT_APP_API_URL}/api/user/register`,data).then((res)=>{
       // console.log(res);
       window.alert(res.data.message);
       navigate("/")

@@ -14,7 +14,7 @@ const ForgetPasswordForm=()=>{
     const [click,setClick]=useState(false);
     function postdata(data){
         try{
-            axios.post("${process.env.API_ENDPOINT}/api/user/updatePassword",data).then((res)=>{
+            axios.post(`${process.env.REACT_APP_API_URL}/api/user/updatePassword`,data).then((res)=>{
               console.log(res);
               window.alert(res.data.message)
               navigate("/")

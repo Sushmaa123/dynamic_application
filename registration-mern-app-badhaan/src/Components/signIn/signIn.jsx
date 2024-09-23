@@ -13,7 +13,7 @@ const SignIn=()=>{
     const [login,setlogin]=useState(false);
     function postSignInData(data){
         try{
-          axios.post("${process.env.API_ENDPOINT}/api/user/login",data).then((res)=>{
+          axios.post(`${process.env.REACT_APP_API_URL}/api/user/login`,data).then((res)=>{
             const myToken = res.data.token;
             localStorage.setItem("token", myToken);
             window.alert(res.data.Status);

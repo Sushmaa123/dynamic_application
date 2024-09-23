@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:16
+FROM node:16 AS build
 
 # Set the working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install -g env-cmd
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:stable-alpine
 
 # Copy the built application from the previous step
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
 # Expose the port the app runs on
 EXPOSE 80

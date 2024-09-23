@@ -23,7 +23,7 @@ const Profile = () => {
 
   useEffect( () => {
   axios
-      .get("${process.env.API_ENDPOINT}/api/user", config)
+      .get(`${process.env.REACT_APP_API_URL}/api/user`, config)
       .then((res) => {
         console.log(res.data.data);
         setProfile(res.data.data);
