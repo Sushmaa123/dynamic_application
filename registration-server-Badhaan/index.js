@@ -11,6 +11,7 @@ app.get("/",(req,res)=>{
 })
 app.listen(port,()=>{
    mongoose.connect('mongodb://mongo:27017/budhan-users',{useNewUrlParser: true},()=>{
+//    mongoose.connect('mongodb://localhost:27017/budhan-users',{useNewUrlParser: true},()=>{
     console.log("connected to database");
 })
     console.log(`server is up at ${port}`);

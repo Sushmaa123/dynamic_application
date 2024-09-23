@@ -5,6 +5,7 @@ import SignUp from './Components/signUp/signUp';
 import Profile from './Components/updateForm/updateForm';
 import ForgetPasswordForm from './Components/updatePassword/changePassForm';
 import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom"
+import React from "react";
 
 function App() {
   const token = localStorage.getItem("token");
