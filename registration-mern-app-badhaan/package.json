@@ -15,10 +15,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "API_ENDPOINT=http://your-public-ip-address:5000 react-scripts start",
-    "build": "API_ENDPOINT=http://your-public-ip-address:5000 react-scripts build",
-    "test": "API_ENDPOINT=http://your-public-ip-address:5000 react-scripts test",
-    "eject": "API_ENDPOINT=http://your-public-ip-address:5000 react-scripts eject"
+    "start": "env-cmd -f .env react-scripts start",
+    "build": "env-cmd -f .env react-scripts build",
+    "test": "env-cmd -f .env react-scripts test",
+    "eject": "env-cmd -f .env react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

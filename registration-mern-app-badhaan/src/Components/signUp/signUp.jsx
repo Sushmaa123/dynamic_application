@@ -2,7 +2,7 @@ import "./signUp.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { API_ENDPOINT } from "../../config";
+
 const SignUp = () => {
   const navigate = useNavigate();
   const [details,setDetails]=useState({
@@ -14,7 +14,7 @@ const SignUp = () => {
 });
 function postSignUpData(data){
   try{
-    axios.post("${API_ENDPOINT}/api/user/register",data).then((res)=>{
+    axios.post("${process.env.API_ENDPOINT}/api/user/register",data).then((res)=>{
       // console.log(res);
       window.alert(res.data.message);
       navigate("/")

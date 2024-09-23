@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./updateForm.css";
 import { useNavigate } from "react-router-dom";
-import { API_ENDPOINT } from "../../config";
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -24,7 +23,7 @@ const Profile = () => {
 
   useEffect( () => {
   axios
-      .get("${API_ENDPOINT}/api/user", config)
+      .get("${process.env.API_ENDPOINT}/api/user", config)
       .then((res) => {
         console.log(res.data.data);
         setProfile(res.data.data);
