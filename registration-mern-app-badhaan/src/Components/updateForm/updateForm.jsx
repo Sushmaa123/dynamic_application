@@ -41,7 +41,7 @@ useEffect( ()=>{
 if(Object.keys(formError).length==0 && updateClick ){
     console.log(updateDetails);
    axios
-    .post("http://localhost:5000/api/user/update",updateDetails,config)
+    .post(`${process.env.REACT_APP_API_URL}/api/user/update`,updateDetails,config)
     .then((res) => {
      console.log(res);
      window.alert(res.data.message);
