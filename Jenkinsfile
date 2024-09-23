@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/VootlaSaiCharan/dynamic_application.git'
+                git branch: 'feature', url: 'https://github.com/VootlaSaiCharan/dynamic_application.git'
             }
         }
         stage('Run Docker Compose') {
