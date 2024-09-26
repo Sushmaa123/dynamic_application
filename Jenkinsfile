@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/Sushmaa123/dynamic_app'
+                git 'https://github.com/Sushmaa123/dynamic_application'
             }
         }
         stage('Run Docker Compose') {
