@@ -5,7 +5,7 @@ services:
     build:
       context: ./registration-mern-app-badhaan
     ports:
-      - "80:80"
+      - "81:80"
     depends_on:
       - backend
 
