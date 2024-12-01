@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: sushmagowda321/mernbackend
+          image: sushmagowda321/dynamic-backend
           env:
             - name: MONGO_URI
               value: "mongodb://mongo-service:27017/budhan-users"
